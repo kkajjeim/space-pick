@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="//vjs.zencdn.net/7.10.2/video-js.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vue-video-player@5.0.2/src/custom-theme.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="//vjs.zencdn.net/7.10.2/video.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <style>
+    </style>
+</head>
+<body>
+<div id="app">
+    <v-app>
+        <v-tool-bar flat>
+            <v-app-bar-nav-icon>
+            </v-app-bar-nav-icon>
+        </v-tool-bar>
+
+        <v-tabs color="#d86698" centered=true>
+            <v-tab>추천</v-tab>
+            <v-tab>이벤트</v-tab>
+            <v-tab>가맹점 문의</v-tab>
+        </v-tabs>
+
+        <v-carousel
+                :continuous="false"
+                :cycle="cycle"
+                :show-arrows="false"
+                hide-delimiter-background
+                delimiter-icon="mdi-minus"
+                height="300"
+        >
+            <v-carousel-item
+                    v-for="(slide, i) in slides"
+                    :key="i"
+            >
+                <v-sheet
+                        :color="colors[i]"
+                        height="100%"
+                        tile
+                >
+                    <v-row
+                            class="fill-height"
+                            align="center"
+                            justify="center"
+                    >
+                        <div class="text">
+                            {{ slide }} 파티룸
+                        </div>
+                    </v-row>
+                </v-sheet>
+            </v-carousel-item>
+        </v-carousel>
+
+    </v-app>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+        data() {
+            return {
+                colors: [
+                    '#7ec15e',
+                    '#f2f2dc',
+                    '#e6adab',
+                    '#037c32',
+                    '#c43e70',
+                ],
+                cycle: false,
+                slides: [
+                    'First',
+                    'Second',
+                    'Third',
+                    'Fourth',
+                    'Fifth',
+                ],
+            }
+        }
+    })
+</script>
+</html>

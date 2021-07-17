@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from vue import views as vue_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
-    path("space/", include("space.urls"))
+    path("space/", include("space.urls")),
+    path("space-pick", vue_views.hello_space_pick)
 ]
